@@ -1,0 +1,303 @@
+.input {
+  border: none;
+  border-radius: 15px;
+  padding: 15px;
+  background-color: #e8e8e8;
+  box-shadow: 6px 6px 12px #ffffff, -6px -6px 12px #c5c5c5;
+  font-size: medium;
+  font-weight: bold;
+  width: 200px;
+  margin-top: 20px;
+}
+
+.input:focus {
+  outline-color: white;
+  place-content: "Enter your message!";
+}
+
+/* list css */
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+
+body {
+  background-color: gainsboro;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.paper {
+  font-family: "Patrick Hand", cursive;
+  position: relative;
+  line-height: 25px;
+  margin-top: 20px;
+  box-sizing: content-box;
+  width: 80%;
+  height: 1000vh;
+  background-color: white;
+  margin: 0 auto;
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, margin 0.3s;
+
+  &:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    background: rgba(255, 0, 0, 0.3);
+    left: 50px;
+    z-index: 2;
+  }
+
+  .lines {
+    top: 50px;
+    position: relative;
+    box-sizing: content-box;
+    height: calc(100% - 50px);
+    padding-right: 8px;
+    padding-left: 56px;
+    background-image: repeating-linear-gradient(
+      white 0px,
+      white 23.5px,
+      steelblue 25px
+    );
+
+    ul {
+      margin: 0;
+    }
+  }
+}
+
+[contenteditable] {
+  border: 0;
+  outline: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.8em;
+  }
+  .paper {
+    margin-top: -55px;
+    -webkit-transform: scale(0.8);
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transition: 0.3s;
+    transform-origin: 50% 50%;
+    transform: scale(0.8);
+    transition: transform 0.3s, margin 0.3s;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  h1 {
+    font-size: 1.5em;
+  }
+  .paper {
+    margin-top: -82.5px;
+    -webkit-transform: scale(0.7);
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transition: 0.3s;
+    transform-origin: 50% 50%;
+    transform: scale(0.7);
+    transition: transform 0.3s, margin 0.3s;
+  }
+}
+
+@media only screen and (max-height: 600px) {
+  body {
+    overflow: hidden;
+  }
+  .paper {
+    margin-top: -110px;
+    -webkit-transform: scale(0.6);
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transition: 0.3s;
+    transform-origin: 50% 50%;
+    transform: scale(0.6);
+    transition: transform 0.3s, margin 0.3s;
+  }
+}
+
+@media only screen and (max-height: 450px) {
+  body {
+    overflow: hidden;
+  }
+  .paper {
+    margin-top: -137.5px;
+    -webkit-transform: scale(0.5);
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transition: 0.3s;
+    transform-origin: 50% 50%;
+    transform: scale(0.5);
+    transition: transform 0.3s, margin 0.3s;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  h1 {
+    text-align: left;
+    font-size: 1.3em;
+    margin-left: 12px;
+  }
+  .paper {
+    margin: 0;
+    margin-left: 12px;
+    margin-top: -110px;
+    -webkit-transform: scale(0.6);
+    -webkit-transform-origin: 0% 50%;
+    -webkit-transition: 0.3s;
+    transform-origin: 0% 50%;
+    transform: scale(0.6);
+    transition: transform 0.3s, margin 0.3s;
+  }
+}
+
+@media only screen and (max-height: 375px) {
+  body {
+    overflow: hidden;
+  }
+  h1 {
+    text-align: left;
+    font-size: 1.3em;
+    margin-left: 12px;
+  }
+  .paper {
+    margin: 0;
+    margin-left: 12px;
+    margin-top: -165px;
+    -webkit-transform: scale(0.4);
+    -webkit-transform-origin: 0% 50%;
+    -webkit-transition: 0.3s;
+    transform-origin: 0% 50%;
+    transform: scale(0.4);
+    transition: transform 0.3s, margin 0.3s;
+  }
+}
+
+@media only screen and (max-height: 300px) {
+  body {
+    overflow: hidden;
+  }
+  h1 {
+    text-align: left;
+    font-size: 1.3em;
+    margin-left: 12px;
+  }
+  .paper {
+    margin: 0;
+    margin-left: 12px;
+    margin-top: -192.5px;
+    -webkit-transform: scale(0.3);
+    -webkit-transform-origin: 0% 50%;
+    -webkit-transition: 0.3s;
+    transform-origin: 0% 50%;
+    transform: scale(0.3);
+    transition: transform 0.3s, margin 0.3s;
+  }
+}
+
+li {
+  list-style-type: none;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+/* add button */
+
+.btn {
+    margin: 12px;
+    height: 50px;
+    width: 120px;
+    border-radius: 10px;
+    background: #333;
+    justify-content: center;
+    align-items: center;
+    box-shadow:5px 5px 15px #2b2424, inset 5px 5px 10px #444, inset -5px -5px 10px #100a0a;
+    font-family: 'Damion', cursive;
+    border: none;
+    font-size: 16px;
+    color: rgb(161, 161, 161);
+    transition: 500ms;
+  }
+  
+  .btn:hover {
+    box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #222, inset -5px -5px 10px #444;
+    color: #d6d6d6;
+    transition: 500ms;
+  }
+
+  /* delete button */
+
+  .button-delete {
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 2px;
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #910000;
+    color: #d5d5d5;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  
+  .button-delete:hover {
+    background-color: #ffffff;
+    color: #800000;
+    border-color: #bb0000;
+  }
+  
+  /* edit button */
+
+
+  .button-edit {
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 2px;
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #00953e;
+    color: #d5d5d5;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  
+  .button-edit:hover {
+    background-color: #efefef;
+    color: #00973f;
+    border-color: #009414;
+  }
+
+  /* save button */
+
+  .button-save {
+    display: inline-block;
+    margin-right: 2px;
+    margin-left: 2px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #3d6aff;
+    color: #d5d5d5;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  
+  .button-save:hover {
+    background-color: #efefef;
+    color: #3a5eff;
+    border-color: #5055ff;
+  }
