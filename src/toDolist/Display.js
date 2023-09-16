@@ -10,6 +10,25 @@ const Display = () => {
   const [editedText, setEditedText] = useState("");
   const inputRef = useRef(null);
 
+  const handleClick = (e, id) => {
+    
+    const targetClass = e.target.className;
+    if (targetClass.includes("button-edit")) {
+      setEditedText(list.find((item) => item.id === Number(id)).data);
+      setEditedItemId(Number(id));
+    } else if (targetClass.includes("button-save")) {
+      if (editedText.trim() !== "") {
+        dispatch(editList({ id: Number(id), data: editedText }));
+      } else {
+        dispatch(deleteList(Number(id)));
+      }
+      setEditedItemId(null);
+      setEditedText("");
+    } else if (targetClass.includes("button-delete")) {
+      dispatch(deleteList(Number(id)));
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const trimmedValue = e.target.input.value.trim();
@@ -17,21 +36,6 @@ const Display = () => {
       dispatch(addToList(trimmedValue));
       e.target.reset();
     }
-  };
-
-  const handleDelete = (id) => {
-    dispatch(deleteList(id));
-  };
-
-  const handleSave = (id) => {
-    console.log(editedText);
-    if (editedText.trim() !== "") {
-      dispatch(editList({ id, data: editedText }));
-    } else {
-      dispatch(deleteList(id));
-    }
-    setEditedItemId(null);
-    setEditedText("");
   };
 
   useEffect(() => {
@@ -44,7 +48,12 @@ const Display = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <div className="input-group">
-        <input type="text" name="input" class="input" placeholder="Type here!" />
+          <input
+            type="text"
+            name="input"
+            className="input"
+            placeholder="Type here!"
+          />
           <button className="btn" type="submit">
             <span>ADD</span>
           </button>
@@ -52,9 +61,10 @@ const Display = () => {
       </form>
       <div className="paper">
         <div className="lines">
-          <div>
+          <ul>
             {[...list].reverse().map((item) => (
-              <li key={item.id}>
+              <li key={item.id} 
+              onClick={(e) => handleClick(e, item.id)}>
                 {editedItemId === item.id ? (
                   <div>
                     <input
@@ -63,33 +73,19 @@ const Display = () => {
                       onChange={(e) => setEditedText(e.target.value)}
                       ref={inputRef}
                     />
-                    <button className="button-save" onClick={() => handleSave(item.id)}>Save</button>
-                    <button   className="button-delete" onClick={() => handleDelete(item.id)}>
-                      Delete
-                    </button>
+                    <button className="button-save">Save</button>
+                    <button className="button-delete">Delete</button>
                   </div>
                 ) : (
                   <div>
                     {item.data}
-                    <button className="button-edit" onClick={() => {
-                      setEditedText(item.data)
-                      setEditedItemId(item.id)}}>
-                      Edit
-                    </button>
-                    <button  className="button-delete" onClick={() => handleDelete(item.id)}>
-                      Delete
-                    </button>
-                    
+                    <button className="button-edit">Edit</button>
+                    <button className="button-delete">Delete</button>
                   </div>
                 )}
               </li>
             ))}
-          </div>
-        </div>
-        <div className="holes">
-          <div className="hole"></div>
-          <div className="hole"></div>
-          <div className="hole"></div>
+          </ul>
         </div>
       </div>
     </div>
