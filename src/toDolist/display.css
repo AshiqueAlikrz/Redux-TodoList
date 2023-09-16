@@ -77,7 +77,7 @@ h1 {
   outline: 0;
 }
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   h1 {
     font-size: 1.8em;
   }
@@ -120,9 +120,9 @@ h1 {
     transform: scale(0.6);
     transition: transform 0.3s, margin 0.3s;
   }
-}
+} */
 
-@media only screen and (max-height: 450px) {
+/* @media only screen and (max-height: 450px) {
   body {
     overflow: hidden;
   }
@@ -135,9 +135,9 @@ h1 {
     transform: scale(0.5);
     transition: transform 0.3s, margin 0.3s;
   }
-}
+} */
 
-@media only screen and (max-width: 430px) {
+/* @media only screen and (max-width: 430px) {
   h1 {
     text-align: left;
     font-size: 1.3em;
@@ -154,9 +154,9 @@ h1 {
     transform: scale(0.6);
     transition: transform 0.3s, margin 0.3s;
   }
-}
+} */
 
-@media only screen and (max-height: 375px) {
+/* @media only screen and (max-height: 375px) {
   body {
     overflow: hidden;
   }
@@ -198,7 +198,7 @@ h1 {
     transform: scale(0.3);
     transition: transform 0.3s, margin 0.3s;
   }
-}
+} */
 
 li {
   list-style-type: none;
@@ -301,3 +301,5 @@ body {
     color: #3a5eff;
     border-color: #5055ff;
   }
+
+  
