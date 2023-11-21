@@ -1,30 +1,30 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-export const todoSlice = createSlice({
+const todoSlice = createSlice({
   name: "todo",
   initialState: { items: [] },
   reducers: {
     addToList: (state, action) => {
+      console.log(todoSlice.actions);
       const newItem = {
         id: Date.now(),
         data: action.payload,
       };
       state.items.push(newItem);
-      // console.log(newItem);
     },
     deleteList: (state, action) => {
+      console.log(action);
       const idToDelete = action.payload;
-      state.items = state.items.filter(item => item.id !== idToDelete);
-      // console.log(idToDelete);
+      state.items = state.items.filter((item) => item.id !== idToDelete);
     },
     editList: (state, action) => {
       const { id, data } = action.payload;
-      const itemToEdit = state.items.find(item => item.id === id);
+      const itemToEdit = state.items.find((item) => item.id === id);
       if (itemToEdit) {
         itemToEdit.data = data;
       }
       // console.log(itemToEdit);
-    }
+    },
   },
 });
 
@@ -34,4 +34,4 @@ export const store = configureStore({
   },
 });
 
-export const { addToList ,deleteList,editList} = todoSlice.actions;
+export const { addToList, deleteList, editList } = todoSlice.actions;

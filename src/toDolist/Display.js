@@ -4,6 +4,7 @@ import { addToList, deleteList, editList } from "./todoSlice";
 import "./display.css";
 
 const Display = () => {
+  
   const dispatch = useDispatch();
   const list = useSelector((state) => state.todos.items);
   const [editedItemId, setEditedItemId] = useState(null);
@@ -11,7 +12,6 @@ const Display = () => {
   const inputRef = useRef(null);
 
   const handleClick = (e, id) => {
-    
     const targetClass = e.target.className;
     if (targetClass.includes("button-edit")) {
       setEditedText(list.find((item) => item.id === Number(id)).data);
@@ -29,6 +29,7 @@ const Display = () => {
     }
   };
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const trimmedValue = e.target.input.value.trim();
@@ -38,11 +39,15 @@ const Display = () => {
     }
   };
 
+
+
   useEffect(() => {
     if (editedItemId !== null && inputRef.current) {
       inputRef.current.focus();
     }
   }, [editedItemId]);
+
+
 
   return (
     <div>
@@ -63,8 +68,7 @@ const Display = () => {
         <div className="lines">
           <ul>
             {[...list].reverse().map((item) => (
-              <li key={item.id} 
-              onClick={(e) => handleClick(e, item.id)}>
+              <li key={item.id} onClick={(e) => handleClick(e, item.id)}>
                 {editedItemId === item.id ? (
                   <div>
                     <input
